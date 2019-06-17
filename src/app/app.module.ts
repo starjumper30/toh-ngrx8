@@ -16,6 +16,8 @@ import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   imports: [
@@ -31,7 +33,9 @@ import { reducers, metaReducers } from './reducers';
       InMemoryDataService, { dataEncapsulation: false }
     ),
 
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot(reducers, { metaReducers }),
+
+    EffectsModule.forRoot([AppEffects])
   ],
   declarations: [
     AppComponent,
