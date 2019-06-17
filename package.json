@@ -4,7 +4,7 @@
   "private": true,
   "description": "Example project from an angular.io guide.",
   "scripts": {
-    "lint": "tslint ./src/**/*.ts -t verbose",
+    "lint": "ng lint",
     "start": "ng serve",
     "test": "ng test",
     "build": "ng build --prod",
@@ -27,6 +27,7 @@
     "@ngrx/effects": "^8.0.1",
     "@ngrx/store": "^8.0.1",
     "angular-in-memory-web-api": "github:brandonroberts/in-memory-web-api-bazel#50a34d8",
+    "codelyzer": "^5.1.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.5.1",
     "zone.js": "~0.9.1"

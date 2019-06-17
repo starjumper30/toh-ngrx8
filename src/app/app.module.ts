@@ -1,23 +1,24 @@
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
-import { HeroesComponent }      from './heroes/heroes.component';
-import { HeroSearchComponent }  from './hero-search/hero-search.component';
-import { MessagesComponent }    from './messages/messages.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
-import { EffectsModule } from '@ngrx/effects';
+import { AppComponent } from './app.component';
 import { AppEffects } from './app.effects';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { HeroListEffects } from './hero-list.effects';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { InMemoryDataService } from './in-memory-data.service';
+import { MessagesComponent } from './messages/messages.component';
+import { metaReducers, ROOT_REDUCERS } from './reducers';
 
 @NgModule({
   imports: [
@@ -33,9 +34,9 @@ import { AppEffects } from './app.effects';
       InMemoryDataService, { dataEncapsulation: false }
     ),
 
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(ROOT_REDUCERS, { metaReducers }),
 
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects, HeroListEffects])
   ],
   declarations: [
     AppComponent,
