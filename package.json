@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^8.0.0",
     "@angular/router": "^8.0.0",
     "@angular/upgrade": "^8.0.0",
+    "@ngrx/store": "^8.0.1",
     "angular-in-memory-web-api": "github:brandonroberts/in-memory-web-api-bazel#50a34d8",
     "core-js": "^2.5.4",
     "rxjs": "^6.5.1",
