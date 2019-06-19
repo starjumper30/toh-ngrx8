@@ -34,7 +34,12 @@ import { metaReducers, ROOT_REDUCERS } from './reducers';
       InMemoryDataService, { dataEncapsulation: false }
     ),
 
-    StoreModule.forRoot(ROOT_REDUCERS, { metaReducers }),
+    StoreModule.forRoot(ROOT_REDUCERS, { metaReducers, runtimeChecks: {
+        strictActionImmutability: true,
+        strictActionSerializability: true,
+        strictStateImmutability: true,
+        strictStateSerializability: true
+      } }),
 
     EffectsModule.forRoot([AppEffects, HeroListEffects])
   ],
